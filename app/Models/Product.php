@@ -8,16 +8,28 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+
+    protected $fillable=[
+        'sku',
+        'name',
+        'description',
+        'image_path',
+        'price',
+        'subcategory_id'
+    ];
+
+
+
     public function subcategories(){
         return $this->belongsTo((Subcategory::class));
 
     }
 
-    public function variant(){
+    public function variants(){
         return $this->hasMany(variant::class);
     }
 
-    public function opetions(){
-        return $this->belongsToMany(option::class)->whithPivot('value')->whithTimeStamps();
+    public function options(){
+        return $this->belongsToMany(Option::class)->whithPivot('value')->whithTimeStamps();
     }
 }

@@ -12,6 +12,16 @@ class Feature extends Model
     protected $fillable=[
         'value',
         'decription',
-        'potions_id'
+        'option_id'
     ];
+
+    public function options(){
+        return $this->belongsTo(Option::class);
+    }
+
+    public function variants(){
+        return $this->belongsToMany(Variant::class)->withTimeStamps();
+    }
+
+    
 }

@@ -9,7 +9,18 @@ class Option extends Model
 {
     use HasFactory;
 
-    public function Products(){
+    protected $fillable=[
+        'name',
+        'type'
+    ];
+
+
+
+    public function products(){
         return $this->belongsToMany(Product::class)->whithPivote('value')->whithTimeSpamts();
+    }
+
+    public function features(){
+        return $this->hasMany(Feature::class);
     }
 }

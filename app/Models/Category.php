@@ -11,7 +11,7 @@ class Category extends Model
 
     protected $fillable=[
         'name',
-        'familyid'
+        'family_id'
     ];
 
     public function families(){

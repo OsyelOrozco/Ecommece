@@ -19,7 +19,7 @@ class Subcategory extends Model
 
     }
 
-    public function Products(){
+    public function products(){
         return $this->hasMany(Subcategory::class);
     }
 }
